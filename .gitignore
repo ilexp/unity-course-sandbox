@@ -1,2 +1,7 @@
 Sandbox/Library/
 Sandbox/Temp/
+Sandbox/.vs/
+Sandbox/Sandbox.sln
+Sandbox/Sandbox.csproj
+Sandbox/Assembly-CSharp.csproj
+Sandbox/obj/
