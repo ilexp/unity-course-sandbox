@@ -53,7 +53,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4639470593007512}
   - component: {fileID: 33989502039935240}
-  - component: {fileID: 65635466148050762}
   - component: {fileID: 23305620964339886}
   m_Layer: 0
   m_Name: Glasses
@@ -71,7 +70,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4281376013359126}
   - component: {fileID: 33307149823434208}
-  - component: {fileID: 65695030238952812}
   - component: {fileID: 23365148075427212}
   m_Layer: 0
   m_Name: Hair
@@ -303,30 +301,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &65635466148050762
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1414486020007864}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65695030238952812
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1602875905962442}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136461492569376350
 CapsuleCollider:
   m_ObjectHideFlags: 1
