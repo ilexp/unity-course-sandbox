@@ -213,6 +213,38 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1820629173850004, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128833023941334, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241397822422422, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602875905962442, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146130355223602, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312796337948984, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414486020007864, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820629173850004, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
   m_IsPrefabParent: 0
@@ -221,6 +253,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4704693422745460, guid: 98cbb5332d2385c4b9661dbd549cf6c4,
     type: 2}
   m_PrefabInternal: {fileID: 490928960}
+--- !u!114 &537071846 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114465026795915846, guid: 98cbb5332d2385c4b9661dbd549cf6c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 490928960}
+  m_Script: {fileID: 11500000, guid: aa2c2b5012514ba41843b5bcd3014eb2, type: 3}
 --- !u!1 &576380806
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,9 +896,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 4
-  moveSpeed: 10
-  lookSpeed: 6
+  moveAcceleration: 10
+  moveSpeed: 6
+  lookSpeed: 5
   head: {fileID: 490928961}
+  floorSensor: {fileID: 537071846}
 --- !u!1 &1425456297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1093,7 @@ GameObject:
   - component: {fileID: 1992572884}
   - component: {fileID: 1992572883}
   - component: {fileID: 1992572882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,7 +1151,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
