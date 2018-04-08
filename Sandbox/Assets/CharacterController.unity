@@ -992,9 +992,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 4
-  moveSpeed: 5
-  moveAcceleration: 7
-  lookSensitivity: 5
+  moveSpeed: 4
+  moveAcceleration: 10
+  lookSensitivity: 4
   lookAcceleration: 20
   head: {fileID: 490928961}
   floorSensor: {fileID: 537071846}

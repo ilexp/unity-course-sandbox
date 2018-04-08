@@ -7,9 +7,9 @@ namespace AwesomeProject
 	public class FirstPersonCharacterController : MonoBehaviour
 	{
 		[SerializeField] private float jumpForce = 4.0f;
-		[SerializeField] private float moveSpeed = 6.0f;
+		[SerializeField] private float moveSpeed = 4.0f;
 		[SerializeField] private float moveAcceleration = 10.0f;
-		[SerializeField] private float lookSensitivity = 5.0f;
+		[SerializeField] private float lookSensitivity = 4.0f;
 		[SerializeField] private float lookAcceleration = 25.0f;
 		[SerializeField] private Transform head = null;
 		[SerializeField] private CollisionSensor floorSensor = null;
