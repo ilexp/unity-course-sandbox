@@ -13,6 +13,7 @@ namespace AwesomeProject
 		[SerializeField] private float lookAcceleration = 25.0f;
 		[SerializeField] private Transform head = null;
 		[SerializeField] private CollisionSensor floorSensor = null;
+		[SerializeField] private Collider bodyCollider = null;
 
 		private Vector2 targetLookAngle = Vector2.zero;
 		private Vector3 targetMove = Vector3.zero;
@@ -57,11 +58,29 @@ namespace AwesomeProject
 			Vector3 bodyVelocity = body.velocity;
 			Vector3 targetBodyVelocity = this.targetMove * this.moveSpeed;
 			targetBodyVelocity.y = bodyVelocity.y;
+			float moveAccModifier = 1.0f;
 			if (!isOnGround)
-				body.velocity = Vector3.Lerp(bodyVelocity, targetBodyVelocity, this.moveAcceleration * Time.fixedDeltaTime * 0.1f);
+			{
+				moveAccModifier *= 0.1f;
+			}
 			else
-				body.velocity = Vector3.Lerp(bodyVelocity, targetBodyVelocity, this.moveAcceleration * Time.fixedDeltaTime);
-			
+			{
+				if (this.targetMove.magnitude < 0.1f)
+				{
+					targetBodyVelocity.y = 0.0f;
+					this.bodyCollider.material.frictionCombine = PhysicMaterialCombine.Average;
+					this.bodyCollider.material.staticFriction = 1.0f;
+					this.bodyCollider.material.dynamicFriction = 1.0f;
+				}
+				else
+				{
+					this.bodyCollider.material.frictionCombine = PhysicMaterialCombine.Minimum;
+					this.bodyCollider.material.staticFriction = 0.0f;
+					this.bodyCollider.material.dynamicFriction = 0.0f;
+				}
+			}
+			body.velocity = Vector3.Lerp(bodyVelocity, targetBodyVelocity, this.moveAcceleration * Time.fixedDeltaTime * moveAccModifier);
+
 			Quaternion bodyRotation = body.rotation;
 			Quaternion targetBodyRotation = Quaternion.Euler(0.0f, this.targetLookAngle.x, 0.0f);
 			body.MoveRotation(Quaternion.Lerp(bodyRotation, targetBodyRotation, this.lookAcceleration * Time.fixedDeltaTime));
