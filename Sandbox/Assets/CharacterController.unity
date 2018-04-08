@@ -195,19 +195,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4643304745074180, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4643304745074180, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.5016958
       objectReference: {fileID: 0}
     - target: {fileID: 4643304745074180, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4643304745074180, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8650442
       objectReference: {fileID: 0}
     - target: {fileID: 4643304745074180, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
       propertyPath: m_RootOrder
@@ -244,6 +244,10 @@ Prefab:
     - target: {fileID: 1820629173850004, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643304745074180, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -60.224003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98cbb5332d2385c4b9661dbd549cf6c4, type: 2}
@@ -899,6 +903,7 @@ MonoBehaviour:
   moveAcceleration: 10
   moveSpeed: 6
   lookSpeed: 5
+  lookAcceleration: 25
   head: {fileID: 490928961}
   floorSensor: {fileID: 537071846}
 --- !u!1 &1425456297
