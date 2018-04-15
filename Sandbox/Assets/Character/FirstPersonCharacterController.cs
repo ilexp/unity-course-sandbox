@@ -14,6 +14,7 @@ namespace AwesomeProject
 		[SerializeField] private Transform head = null;
 		[SerializeField] private CollisionSensor floorSensor = null;
 		[SerializeField] private Collider bodyCollider = null;
+		[SerializeField] private GameObject throwPrefab = null;
 
 		private Vector2 targetLookAngle = Vector2.zero;
 		private Vector3 targetMove = Vector3.zero;
@@ -33,6 +34,7 @@ namespace AwesomeProject
 				Input.GetAxis("Mouse X"),
 				Input.GetAxis("Mouse Y"));
 			bool jumpInput = Input.GetButtonDown("Jump");
+			bool throwBall = Input.GetButtonDown("Fire1");
 			if (moveInput.magnitude > 1.0f)
 				moveInput /= moveInput.magnitude;
 
@@ -43,6 +45,14 @@ namespace AwesomeProject
 			this.targetLookAngle.y += lookInput.y * -this.lookSensitivity;
 			this.targetLookAngle.y = Mathf.Clamp(this.targetLookAngle.y, -90.0f, 90.0f);
 			if (jumpInput) this.triggerJump = true;
+
+			if (throwBall)
+			{
+				GameObject ballObj = GameObject.Instantiate(this.throwPrefab);
+				ballObj.transform.position = this.head.position + this.head.forward * 0.75f;
+				Rigidbody ballBody = ballObj.GetComponent<Rigidbody>();
+				ballBody.AddForce(this.head.forward * 30.0f, ForceMode.VelocityChange);
+			}
 		}
 		private void FixedUpdate()
 		{
