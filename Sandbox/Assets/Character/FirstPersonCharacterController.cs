@@ -14,7 +14,7 @@ namespace AwesomeProject
 		[SerializeField] private Transform head = null;
 		[SerializeField] private CollisionSensor floorSensor = null;
 		[SerializeField] private Collider bodyCollider = null;
-		[SerializeField] private GameObject throwPrefab = null;
+		[SerializeField] private GameObject createPrefab = null;
 
 		private Vector2 targetLookAngle = Vector2.zero;
 		private Vector3 targetMove = Vector3.zero;
@@ -34,7 +34,8 @@ namespace AwesomeProject
 				Input.GetAxis("Mouse X"),
 				Input.GetAxis("Mouse Y"));
 			bool jumpInput = Input.GetButtonDown("Jump");
-			bool throwBall = Input.GetButtonDown("Fire1");
+			bool useObject = Input.GetButtonDown("Fire1");
+			bool createObject = Input.GetButtonDown("Fire2");
 			if (moveInput.magnitude > 1.0f)
 				moveInput /= moveInput.magnitude;
 
@@ -46,12 +47,22 @@ namespace AwesomeProject
 			this.targetLookAngle.y = Mathf.Clamp(this.targetLookAngle.y, -90.0f, 90.0f);
 			if (jumpInput) this.triggerJump = true;
 
-			if (throwBall)
+			if (useObject)
 			{
-				GameObject ballObj = GameObject.Instantiate(this.throwPrefab);
-				ballObj.transform.position = this.head.position + this.head.forward * 0.75f;
-				Rigidbody ballBody = ballObj.GetComponent<Rigidbody>();
-				ballBody.AddForce(this.head.forward * 30.0f, ForceMode.VelocityChange);
+				Ray viewRay = new Ray(this.head.position, this.head.forward);
+				RaycastHit hitInfo;
+				bool hitAnything = Physics.Raycast(viewRay, out hitInfo, 1.5f);
+				if (hitAnything)
+				{
+					UsableObject usableObject = hitInfo.transform.GetComponent<UsableObject>();
+					if (usableObject != null)
+						usableObject.Use();
+				}
+			}
+			if (createObject)
+			{
+				GameObject obj = GameObject.Instantiate(this.createPrefab);
+				obj.transform.position = this.head.position + this.head.forward * 1.5f;
 			}
 		}
 		private void FixedUpdate()
